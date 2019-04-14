@@ -84,6 +84,6 @@
 >> parameter : bank, start, end
 
 7. 금융지원 금액 예측 API 실행
-> URL : http://localhost:8080/api/prediction
+> URL : http://localhost:8080/api/prediction  
 > Http Method : POST  
 > Request Body : {"bank":"국민은행","month":2}
