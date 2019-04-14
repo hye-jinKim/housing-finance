@@ -46,10 +46,10 @@ JPA로 해결하기 어려운 복잡한 문제들은 최대한 Query로 활용
 > Http Method : PUT  
 > key : uerId, password
 
-4-1. 이미 계정이 있다면, 로그인 API 실행  
-> URL : https://localhost:8080/member/signin  
-> Http Method :  
-> key : userId, password
+> 4-1. 이미 계정이 있다면, 로그인 API 실행  
+>> URL : https://localhost:8080/member/signin  
+>> Http Method :  
+>> key : userId, password
 
 4-2. 토큰이 만료 되었거나, 재발급을 원한다면 재발급 API 실행  
  + URL : https://localhost:8080/member/refresh  
