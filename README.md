@@ -14,12 +14,12 @@
 JPA로 해결하기 어려운 복잡한 문제들은 최대한 Query로 활용
 <li> JWT </li>  
 토큰 발급 API들은 Authorization 체크를 하지 않는다.  
-이전 토큰을 사용하지 못하도록 체크하기 위해 토큰은 항상 DB에 저장하며, DB에 저장된 토큰을 최신 토큰으로 인지한다.
+이전 토큰을 사용하지 못하도록 체크하기 위해 토큰은 항상 DB에 저장하며, DB에 저장된 토큰을 최신 토큰으로 인지한다.  
 1. signup 계정생성 API : 입력으로 ID, PW 받아 내부 DB에 계정 저장하고 토큰 생성하여 출력  
 > 입력 받은 userId, password, token을 DB(member 테이블)에 저장  
-2. signin 로그인 API : 입력으로 생성된 계정 (ID, PW)으로 로그인 요청하면 토큰을 발급
-> 재로그인 시 항상 새 토큰을 발급 및 DB 저장
-3. refresh 토큰 재발급 API : 기존에 발급받은 토큰을 Authorization 헤더에 “Bearer Token”으로 입력 요청을 하면 토큰을 재발급
+2. signin 로그인 API : 입력으로 생성된 계정 (ID, PW)으로 로그인 요청하면 토큰을 발급  
+> 재로그인 시 항상 새 토큰을 발급 및 DB 저장  
+3. refresh 토큰 재발급 API : 기존에 발급받은 토큰을 Authorization 헤더에 “Bearer Token”으로 입력 요청을 하면 토큰을 재발급  
 > DB에 저장되어 있는 토큰을 재발급된 토큰으로 업데이트
 
 
