@@ -44,17 +44,17 @@ JPA로 해결하기 어려운 복잡한 문제들은 최대한 Query로 활용
 4. 가장 먼저, 계정 생성 및 토큰 발급하는 API 실행  
 > URL : https://localhost:8080/member/signup  
 > Http Method : PUT  
-> key : uerId, password
+> parameter : uerId, password
 
 > 4-1. 이미 계정이 있다면, 로그인 API 실행  
 >> URL : https://localhost:8080/member/signin  
->> Http Method :  
->> key : userId, password
+>> Http Method : POST  
+>> parameter : userId, password
 
 > 4-2. 토큰이 만료 되었거나, 재발급을 원한다면 재발급 API 실행  
 >> URL : https://localhost:8080/member/refresh  
->> Http Method :  
->> Http Header : Authorization, Bearer + token
+>> Http Method : GET 
+>> Http Header : Authorization, Bearer + "white space" + token
 
 5. 발급 받은 토큰으로, csv 파일 데이터를 DB에 Insert 하는 API 실행  
 > URL : https://localhost:8080/api/institutes  
@@ -67,14 +67,14 @@ JPA로 해결하기 어려운 복잡한 문제들은 최대한 Query로 활용
 >> Http Method : GET
 
 > 6-2. 년도별 각 금융기관의 지원금액 합계를 출력  
->> URL : https://localhost:8080/api/institutes/  
+>> URL : https://localhost:8080/api/institutes/supportAmounts  
 >> Http Method : GET  
 
 > 6-3. 각 년도별 각 기관의 전체 지원 금액 중에서 가장 큰 금액의 기관명 출력  
->> URL : https://localhost:8080/api/institutes/  
+>> URL : https://localhost:8080/api/institutes/most/supportAmounts  
 >> Http Method : GET
 
 > 6-4. 전체 년도에서 외환은행의 지원금액 평균 중에서 가장 작은 금액과 큰 금액을 출력
->> URL : https://localhost:8080/api/institutes/  
+>> URL : https://localhost:8080/api/institutes/minAndMax/averageAmounts?bank=외환은행&start=2005&end=2016  
 >> Http Method : GET  
->> key : bank, start, end
+>> parameter : bank, start, end
