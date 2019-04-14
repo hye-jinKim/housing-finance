@@ -85,6 +85,6 @@ JPA로 해결하기 어려운 복잡한 문제들은 최대한 Query로 활용
 >> parameter : bank, start, end
 
 7. 금융지원 금액 예측 API 실행
-> URL : http://localhost:8080/api/prediction?bank=국민은행&year=2008&month=2
-> Http Method : GET
+> URL : http://localhost:8080/api/prediction?bank=국민은행&year=2008&month=2  
+> Http Method : GET  
 > parameter : bank, year, month
