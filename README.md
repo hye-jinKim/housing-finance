@@ -9,7 +9,7 @@
 > 설치 URL : https://www.getpostman.com/downloads/
 
 #### 문제 해결 전략
-##### + 개발 목표
+##### 개발 목표
 최대한 Restful한 방식으로 개발하기 위해 노력함  
 JPA로 해결하기 어려운 복잡한 문제들은 최대한 Query로 활용
 + JWT  
@@ -23,7 +23,7 @@ JPA로 해결하기 어려운 복잡한 문제들은 최대한 Query로 활용
 > DB에 저장되어 있는 토큰을 재발급된 토큰으로 업데이트
 
 
-<li>기본 문제 </li>
++ 기본 문제
 1. 데이터 파일에서 각 레코드를 데이터베이스에 저장하는 API  
 > src > file 폴더에 있는 csv 파일을 읽어들여 institute 테이블과 support 테이블에 저장  
 > OpenCSV library 활용  
