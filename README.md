@@ -26,7 +26,7 @@ JPA로 해결하기 어려운 복잡한 문제들은 최대한 Query로 활용
 + 기본 문제
 1. 데이터 파일에서 각 레코드를 데이터베이스에 저장하는 API  
 > resources > file 폴더에 있는 csv 파일을 읽어들여 institute 테이블과 support 테이블에 저장  
-> OpenCSV library 활용  
+> OpenCSV Library 활용  
 > csv 파일에 없는 은행 코드는 등록할 때, 랜덤으로 코드가 생성되어 저장   
 2. 주택금융 공급 금융기관(은행) 목록을 출력하는 API  
 > group by Query를 활용하여 등록되어 있는 은행의 전체 목록을 출력
@@ -37,44 +37,54 @@ JPA로 해결하기 어려운 복잡한 문제들은 최대한 Query로 활용
 5. 전체 년도(2005~2016)에서 외환은행의 지원금액 평균 중에서 가장 작은 금액과 큰 금액을 출력하는 API  
 > 기관명을 '외환은행', 전체 년도를 '2005-2016' 으로 특정지어 결과를 출력하지 않고, 출력하려는 기관명과 전체 년도 (시작년도-종료년도)를 입력받아 조건에 맞게 출력  
 
++ 선택 문제
+1. 특정 은행의 특정 달에 대해서 2018년도 해당 달에 금융지원 금액을 예측하는 API 개발
+> LinearRegression (선형 회귀) 알고리즘 활용하여 개발
+> weka open Library 활용
+
 ### 빌드 및 실행 방법
 1. Git 에서 소스를 다운 받아 STS 실행
 2. resources > sql 폴더에 저장되어 있는 Create Query 문을 실행하여, MySQL 스키마 및 테이블 생성
 3. Postman 실행하여 API 호출
 4. 가장 먼저, 계정 생성 및 토큰 발급하는 API 실행  
-> URL : https://localhost:8080/member/signup  
+> URL : http://localhost:8080/member/signup  
 > Http Method : PUT  
 > parameter : uerId, password
 
 > 4-1. 이미 계정이 있다면, 로그인 API 실행  
->> URL : https://localhost:8080/member/signin  
+>> URL : http://localhost:8080/member/signin  
 >> Http Method : POST  
 >> parameter : userId, password
 
 > 4-2. 토큰이 만료 되었거나, 재발급을 원한다면 재발급 API 실행  
->> URL : https://localhost:8080/member/refresh  
+>> URL : http://localhost:8080/member/refresh  
 >> Http Method : GET 
 >> Http Header : Authorization, Bearer + "white space" + token
 
 5. 발급 받은 토큰으로, csv 파일 데이터를 DB에 Insert 하는 API 실행  
-> URL : https://localhost:8080/api/institutes  
+> URL : http://localhost:8080/api/institutes  
 > Http Method : PUT  
 
 6. 이후 필요한 API 실행  
 
 > 6-1. 주택금융 공급 금융 기관 (은행) 목록 출력  
->> URL : https://localhost:8080/api/institutes  
+>> URL : http://localhost:8080/api/institutes  
 >> Http Method : GET
 
 > 6-2. 년도별 각 금융기관의 지원금액 합계를 출력  
->> URL : https://localhost:8080/api/institutes/supportAmounts  
+>> URL : http://localhost:8080/api/institutes/supportAmounts  
 >> Http Method : GET  
 
 > 6-3. 각 년도별 각 기관의 전체 지원 금액 중에서 가장 큰 금액의 기관명 출력  
->> URL : https://localhost:8080/api/institutes/most/supportAmounts  
+>> URL : http://localhost:8080/api/institutes/most/supportAmounts  
 >> Http Method : GET
 
 > 6-4. 전체 년도에서 외환은행의 지원금액 평균 중에서 가장 작은 금액과 큰 금액을 출력
->> URL : https://localhost:8080/api/institutes/minAndMax/averageAmounts?bank=외환은행&start=2005&end=2016  
+>> URL : http://localhost:8080/api/institutes/minAndMax/averageAmounts?bank=외환은행&start=2005&end=2016  
 >> Http Method : GET  
 >> parameter : bank, start, end
+
+7. 금융지원 금액 예측 API 실행
+> URL : http://localhost:8080/api/prediction?bank=국민은행&year=2008&month=2
+> Http Method : GET
+> parameter : bank, year, month
