@@ -25,7 +25,7 @@ JPA로 해결하기 어려운 복잡한 문제들은 최대한 Query로 활용
 
 + 기본 문제
 1. 데이터 파일에서 각 레코드를 데이터베이스에 저장하는 API  
-> src > file 폴더에 있는 csv 파일을 읽어들여 institute 테이블과 support 테이블에 저장  
+> resources > file 폴더에 있는 csv 파일을 읽어들여 institute 테이블과 support 테이블에 저장  
 > OpenCSV library 활용  
 > csv 파일에 없는 은행 코드는 등록할 때, 랜덤으로 코드가 생성되어 저장   
 2. 주택금융 공급 금융기관(은행) 목록을 출력하는 API  
@@ -39,7 +39,7 @@ JPA로 해결하기 어려운 복잡한 문제들은 최대한 Query로 활용
 
 ### 빌드 및 실행 방법
 1. Git 에서 소스를 다운 받아 STS 실행
-2. src > sql 폴더에 저장되어 있는 Create Query 문을 실행하여, MySQL 스키마 및 테이블 생성
+2. resources > sql 폴더에 저장되어 있는 Create Query 문을 실행하여, MySQL 스키마 및 테이블 생성
 3. Postman 실행하여 API 호출
 4. 가장 먼저, 계정 생성 및 토큰 발급하는 API 실행  
 > URL : https://localhost:8080/member/signup  
