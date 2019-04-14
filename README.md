@@ -9,10 +9,10 @@
 > 설치 URL : https://www.getpostman.com/downloads/
 
 #### 문제 해결 전략
-##### <li> 개발 목표 </li>
+##### + 개발 목표
 최대한 Restful한 방식으로 개발하기 위해 노력함  
 JPA로 해결하기 어려운 복잡한 문제들은 최대한 Query로 활용
-<li> JWT </li>  
++ JWT  
 토큰 발급 API들은 Authorization 체크를 하지 않는다.  
 이전 토큰을 사용하지 못하도록 체크하기 위해 토큰은 항상 DB에 저장하며, DB에 저장된 토큰을 최신 토큰으로 인지한다.  
 1. signup 계정생성 API : 입력으로 ID, PW 받아 내부 DB에 계정 저장하고 토큰 생성하여 출력  
