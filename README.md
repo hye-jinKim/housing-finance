@@ -35,26 +35,26 @@ JPA로 해결하기 어려운 복잡한 문제들은 최대한 Query로 활용
 4. 각 년도별 각 기관의 전체 지원금액 중에서 가장 큰 금액의 기관명을 출력하는 API  
 > 년도별로 지원 금액을 합하여, 가장 큰 금액의 은행과 년도를 출력
 5. 전체 년도(2005~2016)에서 외환은행의 지원금액 평균 중에서 가장 작은 금액과 큰 금액을 출력하는 API  
-> 기관명을 '외환은행', 전체 년도를 '2005~2016' 으로 특정지어 결과를 출력하지 않고, 출력하려는 기관명과 전체 년도 (시작년도~종료년도)를 입력받아 조건에 맞게 출력  
+> 기관명을 '외환은행', 전체 년도를 '2005-2016' 으로 특정지어 결과를 출력하지 않고, 출력하려는 기관명과 전체 년도 (시작년도-종료년도)를 입력받아 조건에 맞게 출력  
 
 #### 빌드 및 실행 방법
 1. Git 에서 소스를 다운 받아 STS 실행
 2. src > sql 폴더에 저장되어 있는 Create Query 문을 실행하여, MySQL 스키마 및 테이블 생성
 3. Postman 실행하여 API 호출
 4. 가장 먼저, 계정 생성 및 토큰 발급하는 API 실행  
- + URL : https://localhost:8080/member/signup  
- + Http Method : PUT  
- + key : uerId, password
+> URL : https://localhost:8080/member/signup  
+> Http Method : PUT  
+> key : uerId, password
 
-  4-1. 이미 계정이 있다면, 로그인 API 실행  
-  + URL : https://localhost:8080/member/signin  
-  + Http Method :  
-  + key : userId, password
+4-1. 이미 계정이 있다면, 로그인 API 실행  
+> URL : https://localhost:8080/member/signin  
+> Http Method :  
+> key : userId, password
 
-  4-2. 토큰이 만료 되었거나, 재발급을 원한다면 재발급 API 실행  
-   + URL : https://localhost:8080/member/refresh  
-   + Http Method :  
-   + Http Header : Authorization, Bearer + token
+4-2. 토큰이 만료 되었거나, 재발급을 원한다면 재발급 API 실행  
+ + URL : https://localhost:8080/member/refresh  
+ + Http Method :  
+ + Http Header : Authorization, Bearer + token
 
 5. 발급 받은 토큰으로, csv 파일 데이터를 DB에 Insert 하는 API 실행  
  + URL : https://localhost:8080/api/institutes  
